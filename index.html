@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dicas práticas para usar a computação em nuvem com segurança, organização e eficiência.">
+<title>Conecte-se à Nuvem | Ciência da Computação</title>
+<style>
+:root{--navy:#071426;--blue:#0878d1;--cyan:#25c4e8;--ink:#122033;--muted:#607086;--paper:#f5f9fd;--white:#fff}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+header{background:rgba(255,255,255,.96);border-bottom:1px solid #e5edf5;position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}
+.nav{max-width:1120px;margin:auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand img{width:210px;max-width:48vw;height:auto;display:block}
+nav{display:flex;gap:24px;align-items:center} nav a{color:#34465c;text-decoration:none;font-weight:650;font-size:.93rem} nav a:hover{color:var(--blue)}
+.hero{background:radial-gradient(circle at 80% 25%,rgba(37,196,232,.26),transparent 28%),linear-gradient(125deg,#061326 0%,#0b2e58 56%,#0878d1 100%);color:white;overflow:hidden}
+.hero-inner{max-width:1120px;margin:auto;padding:86px 24px 92px;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+.eyebrow{display:inline-flex;gap:9px;align-items:center;color:#9cecff;text-transform:uppercase;letter-spacing:.15em;font-weight:750;font-size:.75rem}
+.eyebrow:before{content:"";width:26px;height:2px;background:var(--cyan)}
+h1{font-size:clamp(2.5rem,5vw,4.7rem);line-height:1.04;letter-spacing:-.045em;margin:18px 0}
+h1 span{color:#65dcf5} .hero p{max-width:610px;color:#d2e4f5;font-size:1.12rem}
+.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-block;padding:13px 20px;border-radius:9px;text-decoration:none;font-weight:750;transition:.2s}
+.btn-primary{background:#fff;color:#07305a} .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 25px #001a3a55}
+.btn-ghost{border:1px solid #8db8dc;color:#fff} .btn-ghost:hover{background:#ffffff15}
+.cloud-art{min-height:260px;display:grid;place-items:center;position:relative}
+.cloud{width:260px;height:150px;border-radius:100px;background:linear-gradient(145deg,#e9fbff,#7edcf3);position:relative;filter:drop-shadow(0 25px 28px #00152d66)}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.cloud:before{width:130px;height:130px;left:35px;top:-55px} .cloud:after{width:165px;height:165px;right:22px;top:-75px}
+.cloud-icon{position:absolute;z-index:2;inset:0;display:grid;place-items:center;color:#07518c;font-size:4.3rem;font-weight:900}
+.orbit{position:absolute;border:1px solid #8be8ff66;width:340px;height:220px;border-radius:50%;transform:rotate(-22deg)}
+.orbit:after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:#66e4ff;top:28px;right:40px;box-shadow:0 0 20px #66e4ff}
+section{max-width:1120px;margin:auto;padding:76px 24px}
+.section-head{max-width:670px;margin-bottom:32px} .kicker{color:var(--blue);font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+h2{font-size:clamp(1.9rem,3vw,2.65rem);line-height:1.15;letter-spacing:-.03em;margin:9px 0 12px;color:var(--navy)}
+.section-head p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:white;border:1px solid #e5edf5;border-radius:16px;padding:25px;box-shadow:0 8px 26px #0b31500a;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 32px #0b315015}
+.icon{width:46px;height:46px;border-radius:13px;background:#e8f6ff;color:#0878d1;display:grid;place-items:center;font-size:1.35rem;font-weight:800}
+.card h3{margin:17px 0 7px;color:#10243d;font-size:1.12rem} .card p{margin:0;color:var(--muted);font-size:.96rem}
+.band{background:#eaf4fc} .band-inner{max-width:1120px;margin:auto;padding:66px 24px;display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:center}
+.band h2{margin-top:8px} .band p{color:var(--muted)}
+.checks{display:grid;gap:13px} .check{display:flex;gap:13px;background:white;padding:16px 18px;border-radius:12px;border:1px solid #dfebf5}
+.tick{flex:0 0 25px;height:25px;border-radius:50%;background:#dff8f2;color:#07846d;display:grid;place-items:center;font-weight:900}
+.check strong{display:block;color:#132b46} .check span{color:var(--muted);font-size:.92rem}
+.callout{background:linear-gradient(110deg,#082448,#0878d1);color:white;border-radius:18px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.callout h2{color:white;margin:0 0 7px;font-size:1.7rem} .callout p{color:#d7e9f8;margin:0;max-width:680px}
+footer{background:#061326;color:#c5d4e4;padding:30px 24px} .foot{max-width:1120px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot img{width:165px;background:white;border-radius:6px;padding:4px} .foot small{color:#8fa6bd}
+@media(max-width:800px){.hero-inner,.band-inner{grid-template-columns:1fr}.cloud-art{min-height:190px}.cards{grid-template-columns:repeat(2,1fr)}nav{gap:12px}}
+@media(max-width:560px){.nav{padding:10px 16px;flex-wrap:wrap}nav{width:100%;justify-content:space-between}nav a{font-size:.82rem}.hero-inner{padding:60px 20px}section{padding:58px 20px}.cards{grid-template-columns:1fr}.callout{align-items:flex-start;flex-direction:column}.brand img{width:185px}}
+</style>
+<style>
+header {background:#f3fbfe !important;}
+.brand-logos,.footer-logos {display:flex !important;align-items:center !important;gap:22px !important;flex-wrap:nowrap !important;}
+.brand-logos img,.footer-logos img {object-fit:contain !important;background:transparent !important;}
+.brand-logos .logo-atitus {width:104px !important;height:75px !important;}
+.brand-logos .logo-curso {width:205px !important;height:70px !important;}
+.footer-logos {background:#f3fbfe !important;border-radius:10px;padding:8px 12px;}
+.footer-logos .logo-atitus {width:80px !important;height:60px !important;}
+.footer-logos .logo-curso {width:160px !important;height:58px !important;}
+@media(max-width:560px){.brand-logos{gap:8px !important}.brand-logos .logo-atitus{width:72px !important;height:53px !important}.brand-logos .logo-curso{width:125px !important;height:50px !important}}
+</style>
+</head>
+<body>
+<header>
+ <div class="nav">
+  <a class="brand" href="#inicio" aria-label="Universidade Atitus — Ciência da Computação"><div class="brand-logos"><img class="logo-atitus" src="data:image/png;base64,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" alt="Universidade Atitus"><img class="logo-curso" src="data:image/png;base64,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" alt="Ciência da Computação"></div></a>
+  <nav aria-label="Navegação principal">
+   <a href="#dicas">Dicas</a><a href="#seguranca">Segurança</a><a href="#boas-praticas">Boas práticas</a>
+  </nav>
+ </div>
+</header>
+<main>
+<section class="hero" id="inicio">
+ <div class="hero-inner">
+  <div>
+   <div class="eyebrow">Guia rápido • Computação em nuvem</div>
+   <h1>Seu mundo digital.<br><span>Mais leve na nuvem.</span></h1>
+   <p>Armazene, acesse e compartilhe seus arquivos de qualquer lugar. Aprenda a aproveitar a computação em nuvem com praticidade e segurança.</p>
+   <div class="actions"><a class="btn btn-primary" href="#dicas">Ver dicas essenciais ↓</a><a class="btn btn-ghost" href="#seguranca">Como se proteger</a></div>
+  </div>
+  <div class="cloud-art" aria-hidden="true"><div class="orbit"></div><div class="cloud"><div class="cloud-icon">⇧</div></div></div>
+ </div>
+</section>
+
+<section id="dicas">
+ <div class="section-head"><div class="kicker">Use melhor a tecnologia</div><h2>6 dicas para aproveitar a nuvem</h2><p>Pequenos hábitos ajudam a manter seus arquivos organizados, disponíveis e protegidos.</p></div>
+ <div class="cards">
+  <article class="card"><div class="icon">☁</div><h3>Escolha um serviço confiável</h3><p>Use provedores conhecidos, verifique os recursos oferecidos e leia as condições de armazenamento e privacidade.</p></article>
+  <article class="card"><div class="icon">↗</div><h3>Acesse de qualquer lugar</h3><p>Entre na sua conta pelo computador ou celular e mantenha seus arquivos sincronizados nos dispositivos necessários.</p></article>
+  <article class="card"><div class="icon">▤</div><h3>Organize suas pastas</h3><p>Crie pastas por assunto ou projeto e use nomes claros para encontrar documentos com mais facilidade.</p></article>
+  <article class="card"><div class="icon">⟲</div><h3>Faça cópias de segurança</h3><p>Não dependa de uma única cópia. Mantenha backups importantes e confira se eles podem ser recuperados.</p></article>
+  <article class="card"><div class="icon">♧</div><h3>Compartilhe com atenção</h3><p>Revise as permissões antes de enviar um link. Dê acesso apenas às pessoas que realmente precisam.</p></article>
+  <article class="card"><div class="icon">▦</div><h3>Controle o espaço</h3><p>Apague versões desnecessárias, arquivos duplicados e itens que não são mais úteis para liberar armazenamento.</p></article>
+ </div>
+</section>
+
+<div class="band" id="seguranca">
+ <div class="band-inner">
+  <div><div class="kicker">Segurança em primeiro lugar</div><h2>Proteja seus dados na nuvem</h2><p>A praticidade da nuvem também exige cuidado. Adote medidas simples para reduzir riscos e proteger suas informações pessoais e acadêmicas.</p></div>
+  <div class="checks">
+   <div class="check"><div class="tick">✓</div><div><strong>Use senhas fortes e únicas</strong><span>Evite repetir senhas e considere utilizar um gerenciador confiável.</span></div></div>
+   <div class="check"><div class="tick">✓</div><div><strong>Ative a autenticação em duas etapas</strong><span>Ela adiciona uma camada extra de proteção à sua conta.</span></div></div>
+   <div class="check"><div class="tick">✓</div><div><strong>Desconfie de links suspeitos</strong><span>Confira o remetente e o endereço do site antes de informar seus dados.</span></div></div>
+   <div class="check"><div class="tick">✓</div><div><strong>Evite computadores públicos</strong><span>Se precisar utilizá-los, não salve a senha e encerre a sessão ao terminar.</span></div></div>
+  </div>
+ </div>
+</div>
+
+<section id="boas-praticas">
+ <div class="callout">
+  <div><h2>Nuvem com consciência.</h2><p>Antes de enviar qualquer arquivo, pense: ele contém dados pessoais? Quem terá acesso? Preciso manter uma cópia de segurança?</p></div>
+  <a class="btn btn-primary" href="#inicio">Voltar ao início ↑</a>
+ </div>
+</section>
+</main>
+
+<section id="equipe" class="academic">
+ <div class="academic-inner">
+  <div><div class="kicker">Desenvolvido por</div><h2>Equipe do projeto</h2>
+   <p class="names">Adrian <span>•</span> Giovanni <span>•</span> Joaquim</p>
+  </div>
+  <p class="academic-note">Projeto acadêmico da disciplina de Desafio da Profissão/ Prof. Suellen S. Sotille – Semestre 2026/2</p>
+ </div>
+</section>
+\n<footer>
+ <div class="foot">
+  <div class="footer-logos"><img class="logo-atitus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJ8AAACLCAYAAAB/XEttAAAJC0lEQVR4nO2d23UcKRCGf+/x+yiCyWA2gtkI5AjkCOwIvBFYEcgRKANtBLMRjCOQIsARjB96sBDi2hQNBfWd0w8adRcFFFVAA/0B83IpfP4XgBsCOQDwgUAGO/5qrUAjFIGMGwIZUzNliwO9tyqVN2U9zOr5Srknlncilid0yjMWT1Vy2ZTKo/DE7JjR8+0ryPy7gkxhQEo91EMlud9Icyl0xxfUC48SeoUgNQ3kXFG2MAClxvFYWf4XklwyYab5pR3KJ5dj5UXhvaapk2kyim0MQ4wvgxmnWtbyknAPheEcCGSwYJpWhnKvlFpW4v0SmcXzyUiyQ2Yxvi2R0Cu8oXQKJPeVXGl651W5FLrjCdtP/taczBYY0cIQKF7j1VgAIWxMqRHcNkpX1vgx54h24U9C7+S0NIBHgrR3BekLjSmtfN/ava3SHzr0jj6TXhq6SsuHInQOW0cjTzL30Gf6SSBDQi9DSkPecyd6DBt6h3XpaB9yNRJ6PYwadqm8FgUUoVdgRG9zbKW6DPmud0h3jn5CrkZCr4MRw26Pm3Ak9E5CbyEXWBYJSOidgNJKXruQoLZeNRqFQAiFh6mFbCofnJ69y4FAN1VRP6GQ0sotXUhQWz/xfh3Te8VK6B0UDl7llkDH2t55M0aauKQwni3Kg4ue1RlxknktW1VoyrEbUzCK8T21ViCDzwQyas1FbsoQ7hv8Qhk3faswiucrZeuK/LVxel0ygvH1uJAgxqfWCvQAe9cNviGMq95kjOD5SvnaWgGBJxTvS1tBMeHMGtZuG/xDF3f9i5g97MoKY2E13MNWzS8iCRXhsJAghdI8sP1mG9v+AsbpL42Sj2xm7vP1UmE/Wisg5HHCGCFXM1Jekuml9ecyWqgaLT9JzBp2e/syuEz5MOEBY4apEfMUhJ2rBk1BvwC4R3xp026l/J8A/s98ZrrQy0rZK1xaeW7ZTmd83Pp8HNfupcLKcGaE4q3GVteag31K0+S0l4Vda+MScjUSegNwCrsjh1zNP60VENy0DqNbTX+Upnm3Mt3NYeOiwS/kaiT0euASdtm0ZgLuWyuwFSxaCPh6PWBdGZfml0W9cvF8nGnRcFg0Vg7GN8S5JJlMcZgQB/eswP/jdxJ6HXDwfNwND2jjvVWDNLP42FqBCEcCGb8A3BDI4Ub3jbZ316xQXoi95zHE0KG397DbfevtnGHOb94ainNYuL8PbvWKb3qk4OUwoWaI8S2UlgHFoG06Zg+5GmmEGyMF/spoG+T/0OtQnKLAes3bGkrLo8uy6H2qZS3/tlagM7r0fj22CPF67xmyTEb1fKPRneFQMKLx3bRWoFMOrRUQBEEQBEEQBEEQBEEQqqJWPLOnVkLIQqH9vN2JQsiaVzcKdb58I8u+0+hhtUpx+r294ZBv305Eb8YnTIQYn9CMLYzvgLQl7XsAz9fL5DuhLndY+pVrOutHxPu5h6v8B4RPKcgZsJUM7u5Qvp2gJP1bLGXmLQvKAYd5CPYewKPx97drWruAHq6OdKp+oftc/zvDP2KzD/OOGd0J7sGSb/OOisg7Y9FZp6vLThMacOh7baOx8xTSQV1l6HMRD1icgukIQuX9hPcGp3fivYHa+GIt5QK35/EZ3y3STnZ35ePo+T32XM5J8hfkTzuoiLyUNF33XfC2wfs4enRIKS/g9SPVLmIn4l+8fySi4De+1MJz/RYq1BBP8Bt0jAe891Cp+UhNw0YVyLqDu5xydXbpkPr8s+deu8vkYm8+GwqFPi5wh5Qz0r4FcXHcFzK+WGv2GWzqvKGrIlO9X6q3MVGe33PSXNs90ffaOvgM0oVuACYHpO8R/vOsynjo3cMWueHK/jvUlwkVrsvIcsKhy/hyyG3AyvFbbtmZOj8hz/huHTrkenD7frtPGHt29xHAp6syuR+q64UL/Hscjoh7JYod/R+ucp6wnCr6GfmfMS15XdbD6a17LF2x1DdffxprqdVranq+A9yGFPKUaz5BhYLnTB7h1005fssNm+b9J+Q9f+fQodQGFPK7H9kJhwykpvG5ngn16S5YP8dFYXyAZ3oBbuM7IP2TD6V9PuXQwdUP97FzpHeHlUfa6ePIUgjdV9v4bGML3buP/D8ElfHBo4PKuNd3n8vzlIx2XYMIH77Rri0zmVjFa2sPdSprG5/9XGw0qxLkuWhlfKkNJjQllaL7waODSkzfF+bvkDbdAjj6hrqfYgr+YvwW6xRvZXwp92l0nlwjX+3xbb2pJpl9xqAC8vREr32P2Y0I5V97JTOEusKkT4cHj/wH6zdf+tqDuoxwj6U8fGkDWBRXhpDU+bKcEZtt+eZBiDFyplE0OtM6DQV/H2fNCFhXuinfR0rfzjydys5rypskPens68vF+mdmeT3jff85Nrh4xNsyybEjQRAEQRAEQRAEQRAEgQfKuE6O32IrIxTBFVririql6ZILLPNfCvnzYHo+1ic3hF4h/oylDnpYGbMJ5mTsN8dvoYlmik8D+NI4B/5XK01bdg65z5n5i12UG7e6wVcZPRjfKfA/zsZ3BJ2urAll0Pw9dXmPibJkpC5R0oSML0RppdU0vpIPKA6HmTm7b0eR+ZLnRzS+NboNGXL1XoPU0LYGMT4a2dXZ+riM2IjK3oshR7GV0XX5tTyr5UfCPakLEwUhiD3i8tEqhAHjh90LVm7y4U5qBdmjs5J0chnR+JRDP31N8yHonNZXUplifOH7fNfQXZycAhbjo39uhzQjvGCwqZbcyjE3LYnx0T9n7pcJXUOwpsNrPpOzWUiMLx9zx9pmBthiquVlxTOjd4z/a5z+VyxzrJ+3THSLjwif8X5LpWuO7wXAvfH3d7x9/Zaqq9lac/N3wquh5zxre4jcdA943d+7Nl2qujR1oZTbhNROrsvFm/9LPXeFY9i1ZaRgr+6hZJh+H5XxpRbECMaXsqjUvJ96mmQI49OHU5vXOXDZfbvvmMf4XEufXDwm3mfrloJrFMyWNaPckIwa95u0ND6XnJRrV0FmaZ11QY0KqZlma+NzyQpdsSmokoWkrA1vB5oKyZ1wLknTd0JTTpoUoSplr8Va3VIuQQDw1hBjITbGHu49ME12rv0GWZzrGHvV4WMAAAAASUVORK5CYII=" alt="Universidade Atitus"><img class="logo-curso" src="data:image/png;base64,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" alt="Ciência da Computação"></div>
+  <small>Material educativo • Computação em Nuvem</small>
+  <small>Universidade Atitus | Ciência da Computação</small>
+ </div>
+</footer>
+</body>
+</html>
